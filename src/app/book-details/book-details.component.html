@@ -1,0 +1,29 @@
+<div class="card" *ngIf="book">
+    <a [routerLink]="['/']" class="action">Back</a>
+    <br><br>
+    <p class="info-type">Title</p>
+    <h3 class="info">{{book.title}}</h3>
+    <p class="info-type">Author</p>
+    <h3 class="info">{{book.author.givenName}}  {{book.author.surName}}</h3>
+    <h3 class="info">{{book.author.dateOfBirth}}</h3>
+    <h3 class="info">{{book.author.bio}}</h3>
+    <p class="info-type">Publisher</p>
+    <h3 class="info">{{book.publisher}}</h3>
+    <p class="info-type">Edition</p>
+    <h3 class="info">{{book.edition}}</h3>
+    <p class="info-type">ISBN</p>
+    <h3 class="info">{{book.ISBN}}</h3>
+    <p class="info-type">Publishing Date</p>
+    <h3 class="info">{{book.publishingDate}}</h3>
+    <p class="info-type">Chapters</p>
+    <h3 class="info">{{book.title}}</h3>
+    <div *ngFor="let c of book.chapters" class="chapter-container">
+      <p class="info-type">Title</p>
+      <h3 class="info">{{c.title}}</h3>
+      <p class="info-type">Start Page</p>
+      <h3 class="info">{{c.startPage}}</h3>
+      <p class="info-type">Number of Pages</p>
+      <h3 class="info">{{c.numberOfPages}}</h3>
+          
+    </div>
+</div>

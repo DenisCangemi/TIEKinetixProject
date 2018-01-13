@@ -1,0 +1,42 @@
+<div class="card">
+    <a [routerLink]="['/']" class="action">Back</a>
+    <h1>New Book</h1>
+    <form (ngSubmit)="onSubmit()" >
+      <p clas="info-type">Title</p>
+      <input type="text" class="form-select" name="title" required [(ngModel)]="newBook.title">
+      <p class="err" *ngIf="titleerr">Title is required.</p>
+      <p clas="info-type">Author</p>
+      <select class="form-select" name="author" required [(ngModel)]="authorid">
+          <option *ngFor="let a of authors" [value]="a.id">{{a.givenName}} {{a.surName}}</option>
+      </select>
+      <p class="err" *ngIf="authorerr">Select an author.</p>
+      <p clas="info-type">Publisher</p>
+      <input type="text" class="form-select" name="publisher" required [(ngModel)]="newBook.publisher"newBook.publisher>
+      <p class="err" *ngIf="puberr">Publisher is required.</p>
+      <p clas="info-type">Edition</p>
+      <input type="text" class="form-select" name="edition" required [(ngModel)]="newBook.edition">
+      <p class="err" *ngIf="editionerr">Edition is required.</p>
+      <p clas="info-type">ISBN</p>
+      <input type="text" class="form-select" name="ISBN" required [(ngModel)]="newBook.ISBN">
+      <p class="err" *ngIf="isbnerr">ISBN is required.</p>
+      <p clas="info-type">Publishing Date</p>
+      <input type="date" class="form-select" name="publishing_date" required [(ngModel)]="newBook.publishingDate">
+      <p class="err" *ngIf="dateerr">Publishing date is required.</p>
+      <p clas="info-type">Chapters</p>
+      <div *ngFor="let c of chapters;let i=index" class="chapter-container">
+          <p clas="info-type">Title</p>
+          <input type="text" class="form-select" [name]="'title-chapter'+i" required [(ngModel)]="c.title">
+          <p clas="info-type">Start Page</p>
+          <input type="number" class="form-select" [name]="'start_pages_'+i" required [(ngModel)]="c.startPage">
+          <p clas="info-type">Number of Pages</p>
+          <input type="number" class="form-select" [name]="'number_pages_'+i" required [(ngModel)]="c.numberOfPages">
+          
+      </div>
+      <p (click)="addChapter()" style="margin-left:40px;text-decoration:underline">Add chapter</p>
+      
+      <p class="err" *ngIf="chapterserr">Check all chapters fields</p>
+      <br><br>
+      <button type="submit" class="action" >Submit</button>
+      <h3 class="success" *ngIf="success">New Book added successfully!</h3>
+    </form>
+</div>

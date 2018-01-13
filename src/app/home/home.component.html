@@ -1,0 +1,14 @@
+
+<div *ngFor="let b of books">
+  <div class="card" (click)="goBookDetails(b.id)">
+    <p class="info-type">Title</p>
+    <h3 class="info">{{b.title}}</h3>
+    <a [routerLink]="['/edit', b.id]" class="action">Edit</a>
+    <button (click)="delete(b.id)" class="action">Delete</button>
+  </div>
+  <br>
+</div>
+<br>
+<a routerLink="/new" class="action">Create new Book</a>
+
+
