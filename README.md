@@ -21,6 +21,15 @@ Successfully implemented features:
     - Edit exiting book page
     - Book details page
 
+Problems:
+    - Datetime two way data binding
+        Datetime two way data binding in Angular is a bit tricky. To bind the value from control to
+        the view, the format has to be yyyy-MM-ddTHH:mm.
+        In the model given the date format is like this yyyy-MM-ddTHH:mmZ, so before passing the value,
+        we have to cut the last character and the hours-minutes part.
+        To pass the value from view to controller we have to add the 'T' character to the data value
+        that is passed in this format yyyy-MM-dd.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
